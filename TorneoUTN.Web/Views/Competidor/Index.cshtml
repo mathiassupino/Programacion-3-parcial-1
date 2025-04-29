@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TorneoUTN.Web.Models.Competidor>
+
+@{
+    ViewData["Title"] = "Listado de Competidores";
+}
+
+<h1>Listado de Competidores</h1>
+
+<p>
+    <a asp-action="Create" id="boton-crear">+ Cargar Competidor</a>
+</p>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Edad
+                </th>
+                <th>
+                    Ciudad
+                </th>
+                <th>
+                    Disciplina
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Nombre</td>
+                    <td>@item.Edad</td>
+                    <td>@item.Ciudad</td>
+                    <td>@item.Disciplina.Nombre</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div id="mensaje-vacio">
+        Aún no se cargó ningún competidor.
+    </div>
+}

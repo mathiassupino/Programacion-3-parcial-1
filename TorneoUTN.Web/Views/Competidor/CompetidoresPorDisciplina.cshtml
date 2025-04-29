@@ -1,0 +1,38 @@
+﻿@model IEnumerable<TorneoUTN.Web.Models.DisciplinaCompetidoresViewModel>
+
+@{
+    ViewData["Title"] = "Competidores por Disciplina";
+}
+
+<h1>Cantidad de competidores por disciplina</h1>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Disciplina
+                </th>
+                <th>
+                    Cantidad de competidores
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.NombreDisciplina</td>
+                    <td>@item.CantidadCompetidores</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div id="mensaje-vacio">
+        Aún no se cargó ningún competidor.
+    </div>
+}

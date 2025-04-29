@@ -1,0 +1,56 @@
+﻿@model TorneoUTN.Web.Models.Competidor
+
+@{
+    ViewData["Title"] = "Cargar Competidor";
+}
+
+<h1>Cargar Competidor</h1>
+
+<div>
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="validation-message"></div>
+        
+        <div class="form-group">
+            <label asp-for="Nombre">Nombre: </label>
+            <input asp-for="Nombre" />
+            <span asp-validation-for="Nombre" class="validation-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Edad">Edad: </label>
+            <input asp-for="Edad" />
+            <span asp-validation-for="Edad" class="validation-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Ciudad">Ciudad: </label>
+            <input asp-for="Ciudad"/>
+            <span asp-validation-for="Ciudad" class="validation-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="IdDisciplina">Disciplina: </label>
+            <select asp-for="IdDisciplina" asp-items="ViewBag.Disciplinas"></select>
+            <span asp-validation-for="IdDisciplina" class="validation-message"></span>
+        </div>
+        
+        <div>
+            <input type="submit" value="Cargar" id="input-crear"/>
+        </div>
+    </form>
+</div>
+
+@if(ViewBag.Error != "")
+{
+    <div>
+        <h3 class="viewbag-error">@ViewBag.Error</h3>
+    </div>
+}
+
+<div>
+    <a asp-action="Index" class="boton-volver">← Volver al listado de competidores</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Torneo UTN</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TorneoUTN.Web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <div id="sidebar" class="box">
+            <h1>Torneo UTN</h1>
+            <ul>
+                <li><a asp-controller="Competidor" asp-action="Index">Listado de competidores</a></li>
+                <li><a asp-controller="Competidor" asp-action="InscriptosPorDisciplina">Competidores por Disciplina</a></li>
+            </ul>
+        </div>
+        <div id="cuerpo" class="box">
+            @RenderBody()
+        </div>
+        <div id="pie" class="box">
+            Torneo UTN - Primer parcial de Programación 3 - Supino, Mathias (Leg. 17272)
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
